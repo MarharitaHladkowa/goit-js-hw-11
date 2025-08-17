@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "push": "git add . && git commit -m \"auto commit\" && git push",
     "build": "vite build --base=/vanilla-app-template/",
     "preview": "vite preview"
   },
