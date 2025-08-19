@@ -7,12 +7,185 @@
 /* Common styles */
 @import url('./reset.css');
 @import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* убирает скролл */
+}
+
+/* Основной контейнер */
+main {
+  width: 100%;
+  max-width: 1440px; /* 3 колонки по 360px = 1080px, но можно увеличить */
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 30px;
+  flex: 1; /* чтобы main занимал всё пространство */
+}
+
+/* Стили формы */
+form.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+/* Стили input */
+form input[type='text'] {
+  padding: 12px 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+form input[type='text']:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+/* Стили кнопки */
+form button {
+  padding: 12px 20px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  background-color: #357abd;
+  transform: translateY(-2px);
+}
+
+form button:active {
+  background-color: #2c5ca3;
+  transform: translateY(0);
+}
+
+/* Сообщение об ошибке */
+.error-message {
+  padding: 12px;
+  background-color: #ff4d4f;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.error-message button {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Галерея */
+.gallery {
+  display: flex;
+  flex-wrap: wrap; /* позволяет переносить элементы на новую строку */
+  gap: 16px; /* отступ между блоками */
+  width: 100%;
+  max-width: 1440px;
+}
+
+.gallery li {
+  flex: 0 0 33.33%; /* 3 элемента в строку */
+  width: 33.33%;
+  box-sizing: border-box;
+  min-width: 360px; /* минимальная ширина для изображения */
+  min-height: 200px; /* минимальная высота для изображения */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000; /* черная рамка для каждого элемента */
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background-color: #fff; /* фон для контейнера */
+}
+
+.gallery li img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  /* Убедитесь, что изображение не выходит за рамки */
+}
+
+/* Комментарии */
+.gallery li .info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 8px 0;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* полупрозрачный фон для комментариев */
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.gallery li .info p {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  text-align: center;
+}
+
+/* Лоадер */
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top: 4px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
