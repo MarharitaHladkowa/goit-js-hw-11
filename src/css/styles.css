@@ -114,9 +114,8 @@ form button:active {
 
 .gallery li {
   flex: 0 0 33.33%; /* 3 элемента в строку */
-  width: 33.33%;
+  width: calc((100% - 32px) / 3);
   box-sizing: border-box;
-  min-width: 360px; /* минимальная ширина для изображения */
   min-height: 200px; /* минимальная высота для изображения */
   display: flex;
   flex-direction: column;
