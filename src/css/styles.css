@@ -15,16 +15,14 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden; /* убирает скролл */
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
 /* Основной контейнер */
 main {
   width: 100%;
-  max-width: 1440px; /* 3 колонки по 360px = 1080px, но можно увеличить */
-  height: 100%;
+  max-width: 1440px;
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -33,7 +31,7 @@ main {
   align-items: center;
   justify-content: flex-start;
   padding: 40px 30px;
-  flex: 1; /* чтобы main занимал всё пространство */
+  flex: 1;
 }
 
 /* Стили формы */
@@ -105,57 +103,49 @@ form button:active {
 
 /* Галерея */
 .gallery {
-  display: flex;
-  flex-wrap: wrap; /* позволяет переносить элементы на новую строку */
-  gap: 16px; /* отступ между блоками */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ровно 3 в ряд */
+  gap: 20px;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1200px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
 }
 
 .gallery li {
-  flex: 0 0 33.33%; /* 3 элемента в строку */
-  width: calc((100% - 32px) / 3);
-  box-sizing: border-box;
-  min-height: 200px; /* минимальная высота для изображения */
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #000; /* черная рамка для каждого элемента */
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  background-color: #fff; /* фон для контейнера */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
 }
 
+.gallery li:hover {
+  transform: translateY(-5px); /* лёгкий ховер-эффект */
+}
+
+/* Фото */
 .gallery li img {
   width: 100%;
-  height: 200px;
+  height: 200px; /* фиксированная высота */
   object-fit: cover;
-  border-radius: 8px;
-  /* Убедитесь, что изображение не выходит за рамки */
+  display: block;
 }
 
-/* Комментарии */
+/* Информация */
 .gallery li .info {
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
-  padding: 8px 0;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.7
-  ); /* полупрозрачный фон для комментариев */
-  color: white;
+  padding: 10px;
+  background-color: #fff;
+  color: #333;
   font-size: 14px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
 }
 
 .gallery li .info p {
@@ -163,6 +153,7 @@ form button:active {
   padding: 0;
   flex: 1;
   text-align: center;
+  font-weight: 500;
 }
 
 /* Лоадер */
